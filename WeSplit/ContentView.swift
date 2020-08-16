@@ -24,7 +24,7 @@ struct ContentView: View {
         let peopleCount = Double(numPeople) ?? 0 + 2
         return totalPerPerson*peopleCount
     }
-    let tipPercents = [10,15,20,25]
+    let tipPercents = [0,10,15,20,25]
     
     var body: some View {
         NavigationView{
@@ -51,6 +51,7 @@ struct ContentView: View {
                 }
                 Section(header: Text("Total amount for the check")){
                     Text("$\(totalAmount, specifier: "%.2f")")
+                        .foregroundColor(tipPercent==0 ? .red : .black)
                 }
                 Section(header: Text("Amount per person")){
                     Text("$\(totalPerPerson, specifier: "%.2f")")
